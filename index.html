@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Select Role | Volunteer Match</title>
-  <link rel="stylesheet" href="../../style/global.css" />
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="volunteer/css/animation.css">
+
+
   <style>
     body {
       background: linear-gradient(to bottom right, #dfe9f3, #ffffff);
@@ -12,6 +17,8 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      margin: 0;
     }
 
     .role-container {
@@ -22,24 +29,36 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
       width: 90%;
       max-width: 500px;
+      animation: fadeIn 1.2s ease-out forwards;
+      animation-fill-mode: both;
     }
 
     h1 {
       font-size: 26px;
       margin-bottom: 10px;
       color: #333;
+      animation: rotateIn 0.9s ease-out forwards;
+      animation-fill-mode: both;
     }
 
     p {
       font-size: 14px;
       color: #666;
       margin-bottom: 30px;
+      opacity: 0;
+      animation: slideUp 1s ease-out forwards;
+      animation-delay: 0.4s;
+      animation-fill-mode: both;
     }
 
     .btn-group {
       display: flex;
       flex-direction: column;
       gap: 20px;
+      opacity: 0;
+      animation: zoomIn 0.8s ease-in-out forwards;
+      animation-delay: 0.8s;
+      animation-fill-mode: both;
     }
 
     .btn {
@@ -56,10 +75,13 @@
 
     .btn:hover {
       background-color: #574fd6;
+      transform: scale(1.05);
     }
 
     @media (max-width: 500px) {
-      h1 { font-size: 22px; }
+      h1 {
+        font-size: 22px;
+      }
     }
   </style>
 </head>
@@ -72,7 +94,6 @@
     <div class="btn-group">
       <button class="btn" onclick="location.href='volunteer/html/login.html'">I am a Volunteer</button>
       <button class="btn" onclick="location.href='user/html/login.html'">I am an NGO / Help Seeker</button>
-
     </div>
   </div>
 

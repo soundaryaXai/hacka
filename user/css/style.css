@@ -15,7 +15,12 @@ body {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   padding: 30px 40px;
   transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
+
+
 
 h2 {
   text-align: center;
@@ -97,3 +102,62 @@ h2 {
     padding: 25px;
   }
 }
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  margin: 20px auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-align: left;
+  max-width: 600px;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  color: #333;
+  font-size: 20px;
+}
+
+.card p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  margin: 30px auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-align: left;
+  max-width: 600px;
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+}
+
+.card-wrapper {
+  padding: 40px 20px;
+}
+
+.card h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1.3;
+}
+
+
+
+
