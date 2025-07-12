@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select Role | Volunteer Match</title>
+  <link rel="stylesheet" href="style/global.css" />
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #dfe9f3, #ffffff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .role-container {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      width: 90%;
+      max-width: 500px;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .btn {
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      background-color: #6c63ff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #574fd6;
+    }
+
+    @media (max-width: 500px) {
+      h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="role-container">
+    <h1>Welcome to Volunteer Match</h1>
+    <p>Choose how you'd like to contribute or request support.</p>
+
+    <div class="btn-group">
+      <button class="btn" onclick="location.href='login-volunteer.html'">I am a Volunteer</button>
+      <button class="btn" onclick="location.href='login-user.html'">I am an NGO / Help Seeker</button>
+    </div>
+  </div>
+
+</body>
+</html>
