@@ -1,0 +1,112 @@
+/* volunteer/css/style.css */
+
+body {
+  background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  transition: all 0.3s ease;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2e5eff;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 6px;
+  display: block;
+  font-weight: 500;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+  border-color: #2e5eff;
+  background: #fff;
+  outline: none;
+}
+
+.btn {
+  background-color: #2e5eff;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #1d44d9;
+}
+
+.profile-section {
+  background-color: #eef2ff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.profile-section img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #2e5eff;
+  margin-bottom: 15px;
+}
+
+.profile-section h3 {
+  margin: 0;
+  font-size: 22px;
+  color: #333;
+  font-weight: 600;
+}
+
+.profile-section p {
+  color: #555;
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin: 30px 20px;
+    padding: 25px;
+  }
+}
