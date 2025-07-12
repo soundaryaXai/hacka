@@ -1,0 +1,45 @@
+<!-- volunteer/html/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Volunteer Dashboard</title>
+  <link rel="stylesheet" href="../../style/global.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/dashboard.css"> <!-- new CSS -->
+
+  <script src="../js/dashboard.js" defer></script> <!-- dashboard interactivity -->
+</head>
+<body>
+  <div class="dashboard-container">
+    <header class="dashboard-header">
+      <h2>Hello, Riya! 👋</h2>
+      <a class="btn" href="profile.html">Edit Profile</a>
+    </header>
+
+    <section class="filters">
+      <label for="location">Filter by Location:</label>
+      <select id="location">
+        <option value="all">All</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Pune">Pune</option>
+      </select>
+
+      <label for="skills">Filter by Skill:</label>
+      <select id="skills">
+        <option value="all">All</option>
+        <option value="First Aid">First Aid</option>
+        <option value="Teaching">Teaching</option>
+        <option value="Tech Support">Tech Support</option>
+      </select>
+    </section>
+
+    <section class="task-list" id="taskList">
+      <!-- Filled dynamically -->
+    </section>
+  </div>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>
