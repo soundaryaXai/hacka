@@ -1,0 +1,148 @@
+<!-- Save this as register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - Volunteer Portal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to top right, #fbc2eb 0%, #a6c1ee 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .register-container {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #777;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      display: block;
+      color: #555;
+    }
+
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+
+    .input-group input:focus, .input-group select:focus {
+      border-color: #5a67d8;
+      outline: none;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      background-color: #5a67d8;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #434190;
+    }
+
+    .back-link {
+      margin-top: 20px;
+      text-align: center;
+      color: #666;
+    }
+
+    .back-link a {
+      color: #5a67d8;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="register-container">
+    <h2>Create Your Volunteer Profile</h2>
+    <p>Sign up and start impacting lives—one hour at a time.</p>
+
+    <form>
+      <div class="input-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" placeholder="e.g. Arjun Kumar" required>
+      </div>
+      <div class="input-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="e.g. arjun@email.com" required>
+      </div>
+      <div class="input-group">
+        <label for="location">City / Local Area</label>
+        <input type="text" id="location" placeholder="e.g. Chennai, Tamil Nadu" required>
+      </div>
+      <div class="input-group">
+        <label for="interest">I Can Help With</label>
+        <select id="interest" required>
+          <option value="">Select...</option>
+          <option value="food">Food Distribution</option>
+          <option value="tech">Tech Support</option>
+          <option value="teaching">Tutoring</option>
+          <option value="delivery">Last-Mile Delivery</option>
+          <option value="other">Other (Flexible)</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="password">Set a Password</label>
+        <input type="password" id="password" placeholder="Create a strong password" required>
+      </div>
+
+      <button class="btn" type="submit">Register & Start Helping</button>
+    </form>
+
+    <div class="back-link">
+      Already have an account? <a href="login.html">Log In</a>
+    </div>
+  </div>
+
+</body>
+</html>
