@@ -1,0 +1,61 @@
+<!-- File: dashboard-user.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NGO Dashboard</title>
+  <link rel="stylesheet" href="style/global.css">
+  <style>
+    .dashboard {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .tasks {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .task-card {
+      background: #f5f7ff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .task-card h3 {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container dashboard">
+    <div class="header">
+      <h2>Welcome, Hope Foundation</h2>
+      <a class="btn" href="profile-user.html">Edit Profile</a>
+    </div>
+
+    <button class="btn" style="margin-bottom: 20px;">+ Post New Task</button>
+
+    <div class="tasks">
+      <div class="task-card">
+        <h3>Urgent: Food Distribution</h3>
+        <p>Need 3 volunteers for packing at Delhi center today 4–6 PM.</p>
+      </div>
+      <div class="task-card">
+        <h3>Medical Camp Support</h3>
+        <p>2 volunteers needed for patient registration in Pune on 18th July.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
