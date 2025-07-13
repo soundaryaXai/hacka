@@ -1,43 +1,65 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Volunteer Match | Home</title>
-  <link rel="stylesheet" href="style/global.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Micro Volunteer Matching Platform</title>
+    <link rel="stylesheet" href="styles/global.css">
 </head>
 <body>
 
-  <!-- 🔹 Landing Section -->
-  <section id="landing" class="fullscreen landing-mode">
-    <h1 class="glitch" data-text="VOLUNTEER MATCH">VOLUNTEER MATCH</h1>
-    <p>Connecting Hearts to Causes 💖</p>
-    <button class="btn-glow" onclick="showRoleSection()">Get Started</button>
+<header>
+    <h1>Micro Volunteer Platform</h1>
+    <nav>
+        <a href="#" data-target="home">Home</a>
+        <a href="#" data-target="about">About</a>
+        <a href="#" data-target="contact">Contact</a>
+        <a href="#" data-target="support">Support</a>
+    </nav>
+</header>
 
-    <div class="footer-links">
-      <a href="#about">About</a>
-      <a href="#impact">Impact</a>
-      <a href="#contact">Contact</a>
-      <a href="#support">Support</a>
+<main>
+    <section id="home" class="section active">
+        <h2>Welcome to the Micro Volunteer Platform</h2>
+        <p>Connecting volunteers and those in need with ease and efficiency.</p>
+        <button class="get-started" id="getStartedBtn">Get Started</button>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>We are a platform that matches micro-volunteers with meaningful causes, ensuring every minute you give counts.</p>
+    </section>
+
+    <section id="contact" class="section">
+       <h2>Contact Us</h2>
+       <p>Email: <a href="mailto:support@microvolunteer.com">support@microvolunteer.com</a></p>
+       <p>Phone: <a href="tel:+1234567890">+1 234 567 890</a></p>
+    </section>
+
+
+    <section id="support" class="section">
+      <h2>Support</h2>
+      <p>For any issues or help, please reach out to our support team at 
+        <a href="mailto:help@microvolunteer.com">help@microvolunteer.com</a>
+      </p>
+    </section>
+
+</main>
+
+<!-- Modal for Choose Role -->
+<div class="modal" id="roleModal">
+    <div class="modal-content">
+        <h2>Choose Your Role</h2>
+        <button class="role-btn" onclick="location.href='user/html/auth.html'">User</button>
+        <button class="role-btn" onclick="location.href='volunteer/html/auth.html'">Volunteer</button>
+        <button class="role-btn" id="closeModal">Cancel</button>
     </div>
-  </section>
+</div>
 
-  <!-- 🔹 Role Selection Section (Initially Hidden) -->
-  <section id="roleSelection" class="fullscreen hidden fade-in">
-    <h2>Choose Your Role</h2>
-    <div class="btn-group">
-      <button onclick="location.href='volunteer/login.html'" class="btn-pulse">I'm a Volunteer</button>
-      <button onclick="location.href='user/login.html'" class="btn-pulse">I'm an NGO / Help Seeker</button>
-    </div>
-  </section>
+<footer>
+    &copy; 2025 Micro Volunteer Platform
+</footer>
 
-  <script>
-    function showRoleSection() {
-      document.getElementById('landing').classList.add('hidden');
-      document.getElementById('roleSelection').classList.remove('hidden');
-    }
-  </script>
-
+<script src="main.js"></script>
 </body>
 </html>

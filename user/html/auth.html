@@ -1,114 +1,91 @@
-<!-- File: user/html/user-auth.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NGO | Login & Register</title>
-  <link rel="stylesheet" href="../../styles/global.css" />
-  <style>
-    .auth-toggle {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
-    .auth-toggle button {
-      padding: 10px 20px;
-      margin: 0 5px;
-      background: #6c63ff;
-      border: none;
-      border-radius: 6px;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .auth-toggle button.active {
-      background-color: #5146d8;
-    }
-
-    .auth-section {
-      display: none;
-    }
-
-    .auth-section.active {
-      display: block;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication</title>
+    <link rel="stylesheet" href="../../styles/global.css">
 </head>
 <body>
 
-<div class="container">
-  <h2>NGO Portal</h2>
-  <p>Manage help requests and stay connected.</p>
+<header>
+    <h1>User Authentication</h1>
+</header>
 
-  <div class="auth-toggle">
-    <button id="show-login" class="active">Login</button>
-    <button id="show-register">Register</button>
-  </div>
+<main style="max-width: 400px; margin: 40px auto;">
 
-  <!-- Login Form -->
-  <div id="login-section" class="auth-section active">
-    <form id="loginForm">
-      <div class="input-group">
-        <label for="loginEmail">Email</label>
-        <input type="email" id="loginEmail" placeholder="you@example.com" required />
-      </div>
+    <!-- Login Form -->
+    <section id="loginSection" class="section active">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label>Email:</label>
+            <input type="email" name="email" required><br><br>
 
-      <div class="input-group">
-        <label for="loginPassword">Password</label>
-        <input type="password" id="loginPassword" placeholder="Enter password" required />
-      </div>
+            <label>Password:</label>
+            <input type="password" name="password" required><br><br>
 
-      <button class="btn" type="submit">Login</button>
-    </form>
-  </div>
+            <button type="submit" class="get-started">Login</button>
+        </form>
 
-  <!-- Register Form -->
-  <div id="register-section" class="auth-section">
-    <form id="registerForm">
-      <div class="input-group">
-        <label for="regName">Organization Name</label>
-        <input type="text" id="regName" required />
-      </div>
+        <p>Don't have an account? 
+            <a href="#" id="showRegister">Register here</a>
+        </p>
+    </section>
 
-      <div class="input-group">
-        <label for="regEmail">Email</label>
-        <input type="email" id="regEmail" required />
-      </div>
+    <!-- Register Form -->
+    <section id="registerSection" class="section" style="display:none;">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <label>Full Name:</label>
+            <input type="text" name="name" required><br><br>
 
-      <div class="input-group">
-        <label for="regPassword">Password</label>
-        <input type="password" id="regPassword" required />
-      </div>
+            <label>Date of Birth:</label>
+            <input type="date" name="dob" required><br><br>
 
-      <button class="btn" type="submit">Register</button>
-    </form>
-  </div>
-</div>
+            <label>Email:</label>
+            <input type="email" name="email" required><br><br>
 
-<div id="toast" class="toast"></div>
+            <label>Phone Number:</label>
+            <input type="tel" name="phone" pattern="[0-9]{10}" title="Enter a 10-digit number" required><br><br>
+
+            <label>Password:</label>
+            <input type="password" name="password" required>
+            <small>Password must be at least 8 characters with letters and numbers.</small><br><br>
+
+            <label>Location:</label>
+            <input type="text" name="location" required><br><br>
+
+            <button type="submit" class="get-started">Register</button>
+        </form>
+
+        <p>Already have an account? 
+            <a href="#" id="showLogin">Login here</a>
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    &copy; 2025 Micro Volunteer Platform
+</footer>
 
 <script>
-  const loginBtn = document.getElementById("show-login");
-  const registerBtn = document.getElementById("show-register");
-  const loginSection = document.getElementById("login-section");
-  const registerSection = document.getElementById("register-section");
+    const showRegister = document.getElementById('showRegister');
+    const showLogin = document.getElementById('showLogin');
+    const loginSection = document.getElementById('loginSection');
+    const registerSection = document.getElementById('registerSection');
 
-  loginBtn.addEventListener("click", () => {
-    loginBtn.classList.add("active");
-    registerBtn.classList.remove("active");
-    loginSection.classList.add("active");
-    registerSection.classList.remove("active");
-  });
+    showRegister.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginSection.style.display = 'none';
+        registerSection.style.display = 'block';
+    });
 
-  registerBtn.addEventListener("click", () => {
-    registerBtn.classList.add("active");
-    loginBtn.classList.remove("active");
-    registerSection.classList.add("active");
-    loginSection.classList.remove("active");
-  });
+    showLogin.addEventListener('click', (e) => {
+        e.preventDefault();
+        registerSection.style.display = 'none';
+        loginSection.style.display = 'block';
+    });
 </script>
 
 </body>

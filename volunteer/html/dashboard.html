@@ -1,87 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Volunteer Dashboard</title>
-  <link rel="stylesheet" href="../../style/global.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Dashboard</title>
+    <link rel="stylesheet" href="../../styles/global.css">
 </head>
 <body>
 
-  <!-- Header -->
-  <div id="header-container"></div>
+<header>
+    <h1>Volunteer Dashboard</h1>
+    <button class="get-started" id="toggleProfileBtn">Profile</button>
+</header>
 
-  <!-- Dashboard -->
-  <div class="dashboard-container">
+<main style="max-width: 600px; margin: 40px auto;">
 
-    <h2 class="dashboard-heading">Your Volunteer Dashboard</h2>
-    
-    <!-- Filters -->
-    <section class="filters">
-      <label for="location">Location:</label>
-      <select id="location">
-        <option value="all">All</option>
-        <option value="Delhi">Delhi</option>
-        <option value="Mumbai">Mumbai</option>
-        <option value="Pune">Pune</option>
-      </select>
-
-      <label for="skills">Skills:</label>
-      <select id="skills">
-        <option value="all">All</option>
-        <option value="First Aid">First Aid</option>
-        <option value="Teaching">Teaching</option>
-        <option value="Tech Support">Tech Support</option>
-      </select>
+    <!-- Dashboard Section -->
+    <section id="dashboardSection" class="section active">
+        <h2>Available Tasks</h2>
+        <div id="taskList">
+            <!-- Tasks will be dynamically inserted here -->
+        </div>
     </section>
 
-    <!-- Search -->
-    <input type="text" id="taskSearch" placeholder="Search available tasks..." class="search-input">
+    <!-- Profile Section -->
+    <section id="profileSection" class="section" style="display:none;">
+        <h2>Your Profile</h2>
+        <form id="profileForm">
+            <label>Profile Picture:</label>
+            <input type="file" name="profilePic" accept="image/*"><br><br>
 
-    <!-- Tasks -->
-    <section class="task-list" id="taskList">
-      <div class="task-card">
-        <h3>Help Pack Food Parcels</h3>
-        <p>Assist in packing and distributing meals – Location: Delhi</p>
-      </div>
-      <div class="task-card">
-        <h3>Teaching Kids (NGO)</h3>
-        <p>Volunteer to teach underprivileged children in Mumbai area</p>
-      </div>
-      <div class="task-card">
-        <h3>Medical Camp Assistance</h3>
-        <p>Support needed in first aid and coordination in Pune on 18th</p>
-      </div>
+            <label>Full Name:</label>
+            <input type="text" name="name" value="Jane Volunteer"><br><br>
+
+            <label>Email:</label>
+            <input type="email" name="email" value="volunteer@example.com"><br><br>
+
+            <label>Phone:</label>
+            <input type="tel" name="phone" value="9876543210"><br><br>
+
+            <label>Location:</label>
+            <input type="text" name="location" value="City, Country"><br><br>
+
+            <label>Skills / Interests:</label>
+            <input type="text" name="skills" value="Teaching, Organizing"><br><br>
+
+            <button type="submit" class="get-started">Update Profile</button>
+        </form>
+
+        <button class="get-started" id="backToDashboard">Back to Dashboard</button>
     </section>
 
-  </div>
+</main>
 
-  <!-- Footer -->
-  <div id="footer-container"></div>
+<footer>
+    &copy; 2025 Micro Volunteer Platform
+</footer>
 
-  <!-- Toast -->
-  <div id="toast" class="toast"></div>
+<script>
+    const toggleProfileBtn = document.getElementById('toggleProfileBtn');
+    const backToDashboard = document.getElementById('backToDashboard');
+    const dashboardSection = document.getElementById('dashboardSection');
+    const profileSection = document.getElementById('profileSection');
+    const taskList = document.getElementById('taskList');
 
-  <!-- Scripts -->
-  <script src="../js/dashboard.js" defer></script>
-  <script>
-    // Inject header and hide dark mode + login
-    fetch('../../components/header.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("header-container").innerHTML = data;
-        document.querySelectorAll('.dashboard-hide').forEach(el => {
-          el.style.display = 'none';
+    // Toggle to profile view
+    toggleProfileBtn.addEventListener('click', () => {
+        dashboardSection.style.display = 'none';
+        profileSection.style.display = 'block';
+    });
+
+    // Toggle back to dashboard view
+    backToDashboard.addEventListener('click', () => {
+        profileSection.style.display = 'none';
+        dashboardSection.style.display = 'block';
+    });
+
+    // Dummy tasks data - simulate tasks
+    const tasks = [
+        { title: "Food Distribution", description: "Help distribute food in local shelters.", urgency: "Urgent", peopleNeeded: 5 },
+        { title: "Park Cleaning", description: "Join the park cleaning drive.", urgency: "Normal", peopleNeeded: 10 },
+        { title: "Teaching Assistance", description: "Assist children with basic education.", urgency: "Emergency", peopleNeeded: 2 }
+    ];
+
+    // Render tasks
+    function renderTasks() {
+        tasks.forEach(task => {
+            const taskDiv = document.createElement('div');
+            taskDiv.style.border = '1px solid #ccc';
+            taskDiv.style.padding = '15px';
+            taskDiv.style.marginBottom = '10px';
+            taskDiv.innerHTML = `
+                <h3>${task.title}</h3>
+                <p>${task.description}</p>
+                <p><strong>Urgency:</strong> ${task.urgency}</p>
+                <p><strong>Volunteers Needed:</strong> ${task.peopleNeeded}</p>
+                <button class="get-started">I'm Interested</button>
+            `;
+            taskList.appendChild(taskDiv);
         });
-      });
+    }
 
-    // Inject footer
-    fetch('../../components/footer.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("footer-container").innerHTML = data;
-      });
-  </script>
+    renderTasks();
+
+    // Profile form submission
+    document.getElementById('profileForm').addEventListener('submit', e => {
+        e.preventDefault();
+        alert('Profile updated!');
+    });
+</script>
 
 </body>
 </html>

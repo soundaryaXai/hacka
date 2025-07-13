@@ -1,133 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NGO Dashboard</title>
-
-  <!-- Global CSS Only -->
-  <link rel="stylesheet" href="../../styles/global.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="../../styles/global.css">
 </head>
 <body>
 
-  <!-- Header -->
-  <div id="header-container"></div>
+<header>
+    <h1>User Dashboard</h1>
+    <button class="get-started" id="toggleProfileBtn">Profile</button>
+</header>
 
-  <!-- Dashboard Content -->
-  <div class="dashboard-container container">
-    <h2>NGO Dashboard</h2>
-    <p>Manage tasks and post volunteer requests quickly.</p>
+<main style="max-width: 600px; margin: 40px auto;">
 
-    <!-- Toggle Button -->
-    <button class="btn" id="togglePostForm">➕ Post New Task</button>
+    <!-- Dashboard Section -->
+    <section id="dashboardSection" class="section active">
+        <h2>Create New Task / Emergency</h2>
+        <form id="taskForm">
+            <label>Task Title:</label>
+            <input type="text" name="title" placeholder="e.g. Food Distribution" required><br><br>
 
-    <!-- Post Task Form (Initially Hidden) -->
-    <div id="postTaskForm" class="hidden" style="margin-top: 30px;">
-      <h3>Create a Task</h3>
-      <form id="taskForm">
-        <div class="input-group">
-          <label for="taskTitle">Title</label>
-          <input type="text" id="taskTitle" placeholder="e.g. Blood Donation Camp" required />
-        </div>
-        <div class="input-group">
-          <label for="taskDesc">Description</label>
-          <textarea id="taskDesc" rows="4" placeholder="Include details, timings, location..." required></textarea>
-        </div>
-        <button class="btn" type="submit">Post Task</button>
-      </form>
-    </div>
+            <label>Description:</label>
+            <textarea name="description" rows="4" placeholder="Describe the task..." required></textarea><br><br>
 
-    <!-- Display Existing Tasks -->
-    <div class="tasks" style="margin-top: 40px;">
-      <h3>📋 Your Recent Tasks</h3>
-      <div id="taskGrid" class="card-grid" style="margin-top: 20px;">
-        <div class="card task-card">
-          <h4>Urgent: Food Distribution</h4>
-          <p>Need 3 volunteers for packing at Delhi center today 4–6 PM.</p>
-        </div>
-        <div class="card task-card">
-          <h4>Medical Camp Support</h4>
-          <p>2 volunteers needed for patient registration in Pune on 18th July.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+            <label>Number of Volunteers Needed:</label>
+            <input type="number" name="peopleNeeded" min="1" required><br><br>
 
-  <!-- Footer -->
-  <div id="footer-container"></div>
+            <label>Urgency Level:</label>
+            <select name="urgency">
+                <option>Normal</option>
+                <option>Urgent</option>
+                <option>Emergency</option>
+            </select><br><br>
 
-  <!-- Toast Notification -->
-  <div id="toast" class="toast"></div>
+            <button type="submit" class="get-started">Post Task</button>
+        </form>
+    </section>
 
-  <!-- JavaScript -->
-  <script>
-    // Load Header and Footer
-    fetch('../../components/header.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("header-container").innerHTML = data;
-        const loginIcon = document.querySelector('.login-icon');
-        if (loginIcon) loginIcon.style.display = 'none';
-      });
+    <!-- Profile Section -->
+    <section id="profileSection" class="section" style="display:none;">
+        <h2>Your Profile</h2>
+        <form id="profileForm">
+            <label>Profile Picture:</label>
+            <input type="file" name="profilePic" accept="image/*"><br><br>
 
-    fetch('../../components/footer.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("footer-container").innerHTML = data;
-      });
+            <label>Full Name:</label>
+            <input type="text" name="name" value="John Doe"><br><br>
 
-    // Post Task Toggle Logic
-    document.addEventListener("DOMContentLoaded", () => {
-      const toggleBtn = document.getElementById("togglePostForm");
-      const formSection = document.getElementById("postTaskForm");
-      const form = document.getElementById("taskForm");
-      const taskGrid = document.getElementById("taskGrid");
+            <label>Email:</label>
+            <input type="email" name="email" value="johndoe@example.com"><br><br>
 
-      toggleBtn.addEventListener("click", () => {
-        formSection.classList.toggle("hidden");
-        toggleBtn.textContent = formSection.classList.contains("hidden")
-          ? "➕ Post New Task"
-          : "✖️ Cancel";
-      });
+            <label>Phone:</label>
+            <input type="tel" name="phone" value="1234567890"><br><br>
 
-      form.addEventListener("submit", e => {
-        e.preventDefault();
-        const title = document.getElementById("taskTitle").value;
-        const desc = document.getElementById("taskDesc").value;
+            <label>Location:</label>
+            <input type="text" name="location" value="City, Country"><br><br>
 
-        const card = document.createElement("div");
-        card.className = "card task-card";
-        card.innerHTML = `<h4>${title}</h4><p>${desc}</p>`;
-        taskGrid.prepend(card);
+            <button type="submit" class="get-started">Update Profile</button>
+        </form>
 
-        form.reset();
-        formSection.classList.add("hidden");
-        toggleBtn.textContent = "➕ Post New Task";
-        showToast("✅ Task Posted Successfully!");
-      });
+        <button class="get-started" id="backToDashboard">Back to Dashboard</button>
+    </section>
+
+</main>
+
+<footer>
+    &copy; 2025 Micro Volunteer Platform
+</footer>
+
+<script>
+    const toggleProfileBtn = document.getElementById('toggleProfileBtn');
+    const backToDashboard = document.getElementById('backToDashboard');
+    const dashboardSection = document.getElementById('dashboardSection');
+    const profileSection = document.getElementById('profileSection');
+
+    toggleProfileBtn.addEventListener('click', () => {
+        dashboardSection.style.display = 'none';
+        profileSection.style.display = 'block';
     });
 
-    // Toast Notification
-    function showToast(message) {
-      const toast = document.getElementById("toast");
-      toast.textContent = message;
-      toast.classList.add("show");
-      setTimeout(() => toast.classList.remove("show"), 3000);
-    }
-  </script>
-  <script>
-  fetch('../../components/header.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("header-container").innerHTML = data;
+    backToDashboard.addEventListener('click', () => {
+        profileSection.style.display = 'none';
+        dashboardSection.style.display = 'block';
+    });
 
-      // Hide dark mode, login, and unnecessary elements for dashboard
-      document.querySelectorAll('.dashboard-hide').forEach(el => {
-        el.style.display = 'none';
-      });
+    // Optional: Form submissions
+    document.getElementById('taskForm').addEventListener('submit', e => {
+        e.preventDefault();
+        alert('Task posted successfully!');
+        e.target.reset();
+    });
+
+    document.getElementById('profileForm').addEventListener('submit', e => {
+        e.preventDefault();
+        alert('Profile updated!');
     });
 </script>
-
 
 </body>
 </html>
