@@ -1,0 +1,132 @@
+<!-- File: volunteer/html/volunteer-auth.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Volunteer Access</title>
+  <link rel="stylesheet" href="../../styles/global.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #dfe9f3, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .auth-container {
+      width: 90%;
+      max-width: 420px;
+      background-color: white;
+      padding: 40px 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      text-align: center;
+      position: relative;
+    }
+
+    .auth-container h2 {
+      color: #6c63ff;
+      margin-bottom: 12px;
+    }
+
+    .toggle-text {
+      font-size: 14px;
+      color: #666;
+      margin-top: 20px;
+    }
+
+    .toggle-text a {
+      color: #6c63ff;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .form-section {
+      display: none;
+      animation: fadeIn 0.4s ease-in-out forwards;
+    }
+
+    .form-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="auth-container">
+    <!-- LOGIN FORM -->
+    <div id="loginSection" class="form-section active">
+      <h2>Welcome Volunteer</h2>
+      <p>Log in to support and serve your community.</p>
+      <form>
+        <div class="input-group">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" placeholder="you@example.com" required>
+        </div>
+        <div class="input-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" placeholder="Enter your password" required>
+        </div>
+        <button class="btn" type="submit">Login & Help</button>
+      </form>
+      <div class="toggle-text">
+        New here? <a onclick="showRegister()">Create an account</a>
+      </div>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div id="registerSection" class="form-section">
+      <h2>Join as Volunteer</h2>
+      <p>Create your account and start making a difference.</p>
+      <form>
+        <div class="input-group">
+          <label for="register-name">Full Name</label>
+          <input type="text" id="register-name" placeholder="Your name" required>
+        </div>
+        <div class="input-group">
+          <label for="register-email">Email</label>
+          <input type="email" id="register-email" placeholder="you@example.com" required>
+        </div>
+        <div class="input-group">
+          <label for="register-password">Password</label>
+          <input type="password" id="register-password" placeholder="Choose a strong password" required>
+        </div>
+        <button class="btn" type="submit">Register & Begin</button>
+      </form>
+      <div class="toggle-text">
+        Already registered? <a onclick="showLogin()">Go to Login</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const loginSection = document.getElementById('loginSection');
+    const registerSection = document.getElementById('registerSection');
+
+    function showRegister() {
+      loginSection.classList.remove('active');
+      registerSection.classList.add('active');
+    }
+
+    function showLogin() {
+      registerSection.classList.remove('active');
+      loginSection.classList.add('active');
+    }
+  </script>
+</body>
+</html>
