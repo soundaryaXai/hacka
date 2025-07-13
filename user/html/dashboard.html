@@ -98,6 +98,21 @@
         alert('Profile updated!');
     });
 </script>
+<script>
+// Enhanced Rose Petal Generation
+for(let i = 0; i < 30; i++) {
+    const petal = document.createElement('div');
+    petal.classList.add('petal');
+    petal.style.left = Math.random() * 100 + 'vw';
+    petal.style.animationDuration = (5 + Math.random() * 5) + 's';
+    petal.style.animationDelay = Math.random() * 5 + 's';
+    petal.style.width = (10 + Math.random() * 15) + 'px';
+    petal.style.height = petal.style.width;
+    document.body.appendChild(petal);
+}
+</script>
+
+
 
 </body>
 </html>
