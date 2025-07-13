@@ -1,0 +1,115 @@
+<!-- File: user/html/user-auth.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NGO | Login & Register</title>
+  <link rel="stylesheet" href="../../styles/global.css" />
+  <style>
+    .auth-toggle {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .auth-toggle button {
+      padding: 10px 20px;
+      margin: 0 5px;
+      background: #6c63ff;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .auth-toggle button.active {
+      background-color: #5146d8;
+    }
+
+    .auth-section {
+      display: none;
+    }
+
+    .auth-section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>NGO Portal</h2>
+  <p>Manage help requests and stay connected.</p>
+
+  <div class="auth-toggle">
+    <button id="show-login" class="active">Login</button>
+    <button id="show-register">Register</button>
+  </div>
+
+  <!-- Login Form -->
+  <div id="login-section" class="auth-section active">
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" placeholder="you@example.com" required />
+      </div>
+
+      <div class="input-group">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" placeholder="Enter password" required />
+      </div>
+
+      <button class="btn" type="submit">Login</button>
+    </form>
+  </div>
+
+  <!-- Register Form -->
+  <div id="register-section" class="auth-section">
+    <form id="registerForm">
+      <div class="input-group">
+        <label for="regName">Organization Name</label>
+        <input type="text" id="regName" required />
+      </div>
+
+      <div class="input-group">
+        <label for="regEmail">Email</label>
+        <input type="email" id="regEmail" required />
+      </div>
+
+      <div class="input-group">
+        <label for="regPassword">Password</label>
+        <input type="password" id="regPassword" required />
+      </div>
+
+      <button class="btn" type="submit">Register</button>
+    </form>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+  const loginBtn = document.getElementById("show-login");
+  const registerBtn = document.getElementById("show-register");
+  const loginSection = document.getElementById("login-section");
+  const registerSection = document.getElementById("register-section");
+
+  loginBtn.addEventListener("click", () => {
+    loginBtn.classList.add("active");
+    registerBtn.classList.remove("active");
+    loginSection.classList.add("active");
+    registerSection.classList.remove("active");
+  });
+
+  registerBtn.addEventListener("click", () => {
+    registerBtn.classList.add("active");
+    loginBtn.classList.remove("active");
+    registerSection.classList.add("active");
+    loginSection.classList.remove("active");
+  });
+</script>
+
+</body>
+</html>

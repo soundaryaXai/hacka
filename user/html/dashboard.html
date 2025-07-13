@@ -5,42 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NGO Dashboard</title>
 
-  <!-- External CSS -->
-  <link rel="stylesheet" href="../../style/global.css" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="../css/dashboard.css" />
+  <!-- Global CSS Only -->
+  <link rel="stylesheet" href="../../styles/global.css" />
 </head>
 <body>
 
   <!-- Header -->
   <div id="header-container"></div>
 
-  <!-- Main Dashboard -->
-  <div class="dashboard-container">
+  <!-- Dashboard Content -->
+  <div class="dashboard-container container">
+    <h2>NGO Dashboard</h2>
+    <p>Manage tasks and post volunteer requests quickly.</p>
 
-    <!-- Post Task Shortcut -->
-    <div class="card-wrapper">
-      <a href="post-task.html" class="card" onclick="showToast('Opening task creator...')">
-        <h3>📝 Post New Task</h3>
-        <p>Create a new volunteering request to match with nearby volunteers.</p>
-      </a>
+    <!-- Toggle Button -->
+    <button class="btn" id="togglePostForm">➕ Post New Task</button>
+
+    <!-- Post Task Form (Initially Hidden) -->
+    <div id="postTaskForm" class="hidden" style="margin-top: 30px;">
+      <h3>Create a Task</h3>
+      <form id="taskForm">
+        <div class="input-group">
+          <label for="taskTitle">Title</label>
+          <input type="text" id="taskTitle" placeholder="e.g. Blood Donation Camp" required />
+        </div>
+        <div class="input-group">
+          <label for="taskDesc">Description</label>
+          <textarea id="taskDesc" rows="4" placeholder="Include details, timings, location..." required></textarea>
+        </div>
+        <button class="btn" type="submit">Post Task</button>
+      </form>
     </div>
 
-    <!-- Existing Tasks -->
-    <div class="tasks">
-      <div class="task-card">
-        <h3>Urgent: Food Distribution</h3>
-        <p>Need 3 volunteers for packing at Delhi center today 4–6 PM.</p>
-      </div>
-      <div class="task-card">
-        <h3>Medical Camp Support</h3>
-        <p>2 volunteers needed for patient registration in Pune on 18th July.</p>
+    <!-- Display Existing Tasks -->
+    <div class="tasks" style="margin-top: 40px;">
+      <h3>📋 Your Recent Tasks</h3>
+      <div id="taskGrid" class="card-grid" style="margin-top: 20px;">
+        <div class="card task-card">
+          <h4>Urgent: Food Distribution</h4>
+          <p>Need 3 volunteers for packing at Delhi center today 4–6 PM.</p>
+        </div>
+        <div class="card task-card">
+          <h4>Medical Camp Support</h4>
+          <p>2 volunteers needed for patient registration in Pune on 18th July.</p>
+        </div>
       </div>
     </div>
-
-    <!-- Task Analytics -->
-    <canvas id="taskChart" width="400" height="200"></canvas>
-
   </div>
 
   <!-- Footer -->
@@ -49,18 +59,15 @@
   <!-- Toast Notification -->
   <div id="toast" class="toast"></div>
 
-  <!-- Chart.js Library -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <!-- Dashboard Script -->
-  <script src="../js/user.js"></script>
-
-  <!-- Header & Footer Loader -->
+  <!-- JavaScript -->
   <script>
+    // Load Header and Footer
     fetch('../../components/header.html')
       .then(res => res.text())
       .then(data => {
         document.getElementById("header-container").innerHTML = data;
+        const loginIcon = document.querySelector('.login-icon');
+        if (loginIcon) loginIcon.style.display = 'none';
       });
 
     fetch('../../components/footer.html')
@@ -68,60 +75,59 @@
       .then(data => {
         document.getElementById("footer-container").innerHTML = data;
       });
-  </script>
 
-  <!-- Chart Setup -->
-  <script>
-    const ctx = document.getElementById('taskChart').getContext('2d');
-    new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: ['Food', 'Medical', 'Delivery', 'Tutoring'],
-        datasets: [{
-          label: 'Tasks by Category',
-          data: [8, 14, 9, 6],
-          backgroundColor: ['#6c63ff', '#ff6f61', '#28b4c8', '#ffc107']
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'right',
-            labels: {
-              color: getComputedStyle(document.body).getPropertyValue('--text-color') || '#333'
-            }
-          }
-        }
-      }
+    // Post Task Toggle Logic
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleBtn = document.getElementById("togglePostForm");
+      const formSection = document.getElementById("postTaskForm");
+      const form = document.getElementById("taskForm");
+      const taskGrid = document.getElementById("taskGrid");
+
+      toggleBtn.addEventListener("click", () => {
+        formSection.classList.toggle("hidden");
+        toggleBtn.textContent = formSection.classList.contains("hidden")
+          ? "➕ Post New Task"
+          : "✖️ Cancel";
+      });
+
+      form.addEventListener("submit", e => {
+        e.preventDefault();
+        const title = document.getElementById("taskTitle").value;
+        const desc = document.getElementById("taskDesc").value;
+
+        const card = document.createElement("div");
+        card.className = "card task-card";
+        card.innerHTML = `<h4>${title}</h4><p>${desc}</p>`;
+        taskGrid.prepend(card);
+
+        form.reset();
+        formSection.classList.add("hidden");
+        toggleBtn.textContent = "➕ Post New Task";
+        showToast("✅ Task Posted Successfully!");
+      });
     });
-  </script>
-  <script src="../js/dashboard.js" defer></script>
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.getElementById("theme-toggle");
-    if (!toggle) return;
 
-    // Load theme preference
-    const theme = localStorage.getItem("theme");
-    if (theme === "dark") {
-      document.body.classList.add("dark-mode");
-      toggle.checked = true;
+    // Toast Notification
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 3000);
     }
+  </script>
+  <script>
+  fetch('../../components/header.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("header-container").innerHTML = data;
 
-    // Toggle logic
-    toggle.addEventListener("change", function () {
-      if (toggle.checked) {
-        document.body.classList.add("dark-mode");
-        localStorage.setItem("theme", "dark");
-      } else {
-        document.body.classList.remove("dark-mode");
-        localStorage.setItem("theme", "light");
-      }
+      // Hide dark mode, login, and unnecessary elements for dashboard
+      document.querySelectorAll('.dashboard-hide').forEach(el => {
+        el.style.display = 'none';
+      });
     });
-  });
 </script>
+
 
 </body>
 </html>
-

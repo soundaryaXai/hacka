@@ -4,23 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Volunteer Dashboard</title>
-
-  <!-- External CSS -->
   <link rel="stylesheet" href="../../style/global.css" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="../css/dashboard.css" />
 </head>
 <body>
 
   <!-- Header -->
   <div id="header-container"></div>
 
-  <!-- Dashboard Content -->
+  <!-- Dashboard -->
   <div class="dashboard-container">
 
+    <h2 class="dashboard-heading">Your Volunteer Dashboard</h2>
+    
     <!-- Filters -->
     <section class="filters">
-      <label for="location">Filter by Location:</label>
+      <label for="location">Location:</label>
       <select id="location">
         <option value="all">All</option>
         <option value="Delhi">Delhi</option>
@@ -28,7 +26,7 @@
         <option value="Pune">Pune</option>
       </select>
 
-      <label for="skills">Filter by Skill:</label>
+      <label for="skills">Skills:</label>
       <select id="skills">
         <option value="all">All</option>
         <option value="First Aid">First Aid</option>
@@ -38,15 +36,23 @@
     </section>
 
     <!-- Search -->
-    <input type="text" id="taskSearch" placeholder="Search tasks..." class="search-input">
+    <input type="text" id="taskSearch" placeholder="Search available tasks..." class="search-input">
 
-    <!-- Task Cards -->
+    <!-- Tasks -->
     <section class="task-list" id="taskList">
-      <!-- Populated by JS -->
+      <div class="task-card">
+        <h3>Help Pack Food Parcels</h3>
+        <p>Assist in packing and distributing meals – Location: Delhi</p>
+      </div>
+      <div class="task-card">
+        <h3>Teaching Kids (NGO)</h3>
+        <p>Volunteer to teach underprivileged children in Mumbai area</p>
+      </div>
+      <div class="task-card">
+        <h3>Medical Camp Assistance</h3>
+        <p>Support needed in first aid and coordination in Pune on 18th</p>
+      </div>
     </section>
-
-    <!-- Task Chart -->
-    <canvas id="taskChart" width="400" height="200"></canvas>
 
   </div>
 
@@ -56,74 +62,26 @@
   <!-- Toast -->
   <div id="toast" class="toast"></div>
 
-  <!-- JS Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="../js/dashboard.js"></script>
-
-  <!-- Header/Footer Loader -->
+  <!-- Scripts -->
+  <script src="../js/dashboard.js" defer></script>
   <script>
+    // Inject header and hide dark mode + login
     fetch('../../components/header.html')
       .then(res => res.text())
       .then(data => {
         document.getElementById("header-container").innerHTML = data;
+        document.querySelectorAll('.dashboard-hide').forEach(el => {
+          el.style.display = 'none';
+        });
       });
 
+    // Inject footer
     fetch('../../components/footer.html')
       .then(res => res.text())
       .then(data => {
         document.getElementById("footer-container").innerHTML = data;
       });
   </script>
-
-  <!-- Chart Setup -->
-  <script>
-    const ctx = document.getElementById('taskChart').getContext('2d');
-    new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: ['Food', 'Medical', 'Delivery', 'Tutoring'],
-        datasets: [{
-          label: 'Tasks by Category',
-          data: [12, 19, 7, 5],
-          backgroundColor: ['#6c63ff', '#ff6f61', '#28b4c8', '#ffc107']
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'right',
-            labels: { color: getComputedStyle(document.body).getPropertyValue('--text-color') || '#333' }
-          }
-        }
-      }
-    });
-  </script>
-  <script src="../js/dashboard.js" defer></script>
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.getElementById("theme-toggle");
-    if (!toggle) return;
-
-    // Load theme preference
-    const theme = localStorage.getItem("theme");
-    if (theme === "dark") {
-      document.body.classList.add("dark-mode");
-      toggle.checked = true;
-    }
-
-    // Toggle logic
-    toggle.addEventListener("change", function () {
-      if (toggle.checked) {
-        document.body.classList.add("dark-mode");
-        localStorage.setItem("theme", "dark");
-      } else {
-        document.body.classList.remove("dark-mode");
-        localStorage.setItem("theme", "light");
-      }
-    });
-  });
-</script>
 
 </body>
 </html>

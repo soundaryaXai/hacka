@@ -1,101 +1,43 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Select Role | Volunteer Match</title>
-
-  <!-- External CSS -->
-  <link rel="stylesheet" href="styles/global.css">
-  <link rel="stylesheet" href="volunteer/css/animation.css">
-
-
-  <style>
-    body {
-      background: linear-gradient(to bottom right, #dfe9f3, #ffffff);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      margin: 0;
-    }
-
-    .role-container {
-      background: #fff;
-      padding: 40px 30px;
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-      width: 90%;
-      max-width: 500px;
-      animation: fadeIn 1.2s ease-out forwards;
-      animation-fill-mode: both;
-    }
-
-    h1 {
-      font-size: 26px;
-      margin-bottom: 10px;
-      color: #333;
-      animation: rotateIn 0.9s ease-out forwards;
-      animation-fill-mode: both;
-    }
-
-    p {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 30px;
-      opacity: 0;
-      animation: slideUp 1s ease-out forwards;
-      animation-delay: 0.4s;
-      animation-fill-mode: both;
-    }
-
-    .btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      opacity: 0;
-      animation: zoomIn 0.8s ease-in-out forwards;
-      animation-delay: 0.8s;
-      animation-fill-mode: both;
-    }
-
-    .btn {
-      padding: 14px;
-      font-size: 16px;
-      font-weight: 600;
-      color: #fff;
-      background-color: #6c63ff;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #574fd6;
-      transform: scale(1.05);
-    }
-
-    @media (max-width: 500px) {
-      h1 {
-        font-size: 22px;
-      }
-    }
-  </style>
+  <title>Volunteer Match | Home</title>
+  <link rel="stylesheet" href="style/global.css" />
 </head>
 <body>
 
-  <div class="role-container">
-    <h1>Welcome to Volunteer Match</h1>
-    <p>Choose how you'd like to contribute or request support.</p>
+  <!-- 🔹 Landing Section -->
+  <section id="landing" class="fullscreen landing-mode">
+    <h1 class="glitch" data-text="VOLUNTEER MATCH">VOLUNTEER MATCH</h1>
+    <p>Connecting Hearts to Causes 💖</p>
+    <button class="btn-glow" onclick="showRoleSection()">Get Started</button>
 
-    <div class="btn-group">
-      <button class="btn" onclick="location.href='volunteer/html/login.html'">I am a Volunteer</button>
-      <button class="btn" onclick="location.href='user/html/login.html'">I am an NGO / Help Seeker</button>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#impact">Impact</a>
+      <a href="#contact">Contact</a>
+      <a href="#support">Support</a>
     </div>
-  </div>
+  </section>
+
+  <!-- 🔹 Role Selection Section (Initially Hidden) -->
+  <section id="roleSelection" class="fullscreen hidden fade-in">
+    <h2>Choose Your Role</h2>
+    <div class="btn-group">
+      <button onclick="location.href='volunteer/login.html'" class="btn-pulse">I'm a Volunteer</button>
+      <button onclick="location.href='user/login.html'" class="btn-pulse">I'm an NGO / Help Seeker</button>
+    </div>
+  </section>
+
+  <script>
+    function showRoleSection() {
+      document.getElementById('landing').classList.add('hidden');
+      document.getElementById('roleSelection').classList.remove('hidden');
+    }
+  </script>
 
 </body>
 </html>
