@@ -46,15 +46,7 @@ nav a:hover::after {
 }
 
 /* Sections */
-.section {
-    display: none;
-    padding: 60px;
-    animation: fadeIn 0.5s ease-in-out;
-}
 
-.section.active {
-    display: block;
-}
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
@@ -117,7 +109,7 @@ nav a:hover::after {
 }
 
 .role-btn:hover {
-    background: #8f94fb;
+    background: #320559ca;
 }
 
 /* Footer */
@@ -128,13 +120,17 @@ footer {
     margin-top: 40px;
 }
 
-body {
+
+html, body {
+    width: 100%;
+    height: 100%;
     background: #000; /* Deep black */
     color: white;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
     position: relative;
 }
+
 
 /* Cracked glass SVG overlay */
 body::before {
@@ -189,3 +185,25 @@ body::before {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+main {
+    max-width: 600px;
+    margin: 40px auto;
+    min-height: 80vh;  /* ensures main takes enough vertical space */
+}
+
+/* Dark styled modal content */
+.dark-modal {
+    background: rgba(20, 20, 20, 0.9);
+    color: white;
+    border: 1px solid #555;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.section {
+    padding: 80px 60px;  /* Increased padding for top and bottom */
+    margin-bottom: 120px;  /* Adds space below each section */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+

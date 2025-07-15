@@ -5,17 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Micro Volunteer Matching Platform</title>
     <link rel="stylesheet" href="styles/global.css">
-    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .modal-content.transparent-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
 <header>
     <h1>Micro Volunteer Platform</h1>
     <nav>
-        <a href="#" data-target="home">Home</a>
-        <a href="#" data-target="about">About</a>
-        <a href="#" data-target="contact">Contact</a>
-        <a href="#" data-target="support">Support</a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#support">Support</a>
     </nav>
 </header>
 
@@ -32,24 +42,22 @@
     </section>
 
     <section id="contact" class="section">
-       <h2>Contact Us</h2>
-       <p>Email: <a href="mailto:support@microvolunteer.com">support@microvolunteer.com</a></p>
-       <p>Phone: <a href="tel:+1234567890">+1 234 567 890</a></p>
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:support@microvolunteer.com">support@microvolunteer.com</a></p>
+        <p>Phone: <a href="tel:+1234567890">+1 234 567 890</a></p>
     </section>
-
 
     <section id="support" class="section">
-      <h2>Support</h2>
-      <p>For any issues or help, please reach out to our support team at 
-        <a href="mailto:help@microvolunteer.com">help@microvolunteer.com</a>
-      </p>
+        <h2>Support</h2>
+        <p>For any issues or help, please reach out to our support team at 
+            <a href="mailto:help@microvolunteer.com">help@microvolunteer.com</a>
+        </p>
     </section>
-
 </main>
 
 <!-- Modal for Choose Role -->
 <div class="modal" id="roleModal">
-    <div class="modal-content">
+    <div class="modal-content transparent-box">
         <h2>Choose Your Role</h2>
         <button class="role-btn" onclick="location.href='user/html/auth.html'">User</button>
         <button class="role-btn" onclick="location.href='volunteer/html/auth.html'">Volunteer</button>
@@ -61,8 +69,31 @@
     &copy; 2025 Micro Volunteer Platform
 </footer>
 
-<script src="main.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get Started button
+        document.getElementById('getStartedBtn').addEventListener('click', () => {
+            document.getElementById('roleModal').style.display = 'flex';
+        });
 
+        // Close modal
+        document.getElementById('closeModal').addEventListener('click', () => {
+            document.getElementById('roleModal').style.display = 'none';
+        });
+
+        // Optional: Petal animation if you want
+        for (let i = 0; i < 30; i++) {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = (5 + Math.random() * 5) + 's';
+            petal.style.animationDelay = Math.random() * 5 + 's';
+            petal.style.width = (12 + Math.random() * 8) + 'px';
+            petal.style.height = petal.style.width;
+            document.body.appendChild(petal);
+        }
+    });
+</script>
 
 </body>
 </html>
