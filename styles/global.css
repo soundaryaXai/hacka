@@ -1,29 +1,32 @@
-/* Reset & global styles */
+/* Reset & global */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Orbitron', sans-serif;
 }
 
 body, html {
     width: 100%;
     height: 100%;
-    background: #f5f7fa;
-    color: #333;
+    background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
+    color: #eee;
+    overflow-x: hidden;
+    position: relative;
 }
 
 header {
-    background: linear-gradient(135deg, #4e54c8, #8f94fb);
-    color: white;
+    background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+    color: #00f0ff;
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #00f0ff50;
 }
 
 nav a {
-    color: white;
+    color: #00f0ff;
     margin: 0 15px;
     text-decoration: none;
     font-weight: 500;
@@ -35,7 +38,7 @@ nav a::after {
     position: absolute;
     width: 0%;
     height: 2px;
-    background: white;
+    background: #00f0ff;
     left: 0;
     bottom: -5px;
     transition: 0.3s;
@@ -45,165 +48,72 @@ nav a:hover::after {
     width: 100%;
 }
 
-/* Sections */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
 
+.section {
+    margin: 60px 0;
+    padding: 40px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid #00f0ff30;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.5s ease-in-out;
+}
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Get Started Button */
-.get-started {
-    margin: 40px 0;
-    padding: 15px 40px;
-    font-size: 1.1rem;
+.get-started, .role-btn, button {
+    padding: 12px 30px;
+    font-size: 1rem;
     border: none;
-    background: #4e54c8;
-    color: white;
     border-radius: 30px;
+    background: linear-gradient(90deg, #00f0ff, #00bfff);
+    color: #000;
     cursor: pointer;
-    transition: background 0.4s;
+    box-shadow: 0 0 10px #00f0ff70;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.get-started:hover {
-    background: #8f94fb;
+.get-started:hover, .role-btn:hover, button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00f0ff;
 }
 
-/* Choose Role Modal */
 .modal {
     display: none;
     position: fixed;
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.7);
     justify-content: center;
     align-items: center;
-    animation: fadeIn 0.3s;
 }
 
 .modal-content {
-    background: white;
+    background: #1c1c1c;
     padding: 40px;
-    border-radius: 10px;
+    border-radius: 20px;
     text-align: center;
-    max-width: 400px;
+    border: 1px solid #00f0ff50;
 }
 
-.modal-content h2 {
-    margin-bottom: 20px;
-}
-
-.role-btn {
-    display: block;
-    margin: 10px auto;
-    padding: 12px 30px;
-    border: none;
-    background: #4e54c8;
-    color: white;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.role-btn:hover {
-    background: #320559ca;
-}
-
-/* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    background: #ddd;
+    background: #0f2027;
+    border-top: 1px solid #00f0ff50;
     margin-top: 40px;
 }
 
-
-html, body {
-    width: 100%;
-    height: 100%;
-    background: #000; /* Deep black */
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
-    position: relative;
+/* Futuristic Glow Text */
+h1, h2, h3 {
+    text-shadow: 0 0 10px #00f0ff50;
 }
-
-
-/* Cracked glass SVG overlay */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><g stroke="white" stroke-width="0.5"><line x1="0" y1="0" x2="800" y2="600"/><line x1="800" y1="0" x2="0" y2="600"/><line x1="400" y1="0" x2="400" y2="600"/><line x1="0" y1="300" x2="800" y2="300"/><line x1="200" y1="0" x2="600" y2="600"/><line x1="600" y1="0" x2="200" y2="600"/></g></svg>') center/cover no-repeat;
-    opacity: 0.08;
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Rose Petals */
-.petal {
-    position: fixed;
-    top: -10%;
-    width: 30px;
-    height: 30px;
-    pointer-events: none;
-    z-index: 9999;
-    animation: fall 10s linear infinite;
-}
-
-.petal svg {
-    width: 100%;
-    height: 100%;
-}
-
-@keyframes fall {
-    0% {
-        transform: translateY(0) translateX(0) rotate(0deg);
-    }
-    50% {
-        transform: translateY(50vh) translateX(30px) rotate(180deg);
-    }
-    100% {
-        transform: translateY(110vh) translateX(0) rotate(360deg);
-    }
-}
-
-
-
-
-@keyframes sway {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(30px); }
-}
-
-@keyframes rotatePetal {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-main {
-    max-width: 600px;
-    margin: 40px auto;
-    min-height: 80vh;  /* ensures main takes enough vertical space */
-}
-
-/* Dark styled modal content */
-.dark-modal {
-    background: rgba(20, 20, 20, 0.9);
-    color: white;
-    border: 1px solid #555;
-    box-shadow: 0 0 20px rgba(255,255,255,0.2);
-}
-
-.section {
-    padding: 80px 60px;  /* Increased padding for top and bottom */
-    margin-bottom: 120px;  /* Adds space below each section */
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-
