@@ -12,16 +12,16 @@
     <h1>Volunteer Authentication</h1>
 </header>
 
-<main style="max-width: 400px; margin: 40px auto;">
+<main style="max-width: 400px; margin: 40px auto; line-height: 1.8;">
 
     <!-- Login Form -->
     <section id="loginSection" class="section active">
         <h2>Login</h2>
         <form id="loginForm">
-            <label>Email:</label>
+            <label>Email:</label><br>
             <input type="email" name="email" required><br><br>
 
-            <label>Password:</label>
+            <label>Password:</label><br>
             <input type="password" name="password" required><br><br>
 
             <button type="submit" class="get-started">Login</button>
@@ -36,29 +36,29 @@
     <section id="registerSection" class="section" style="display:none;">
         <h2>Register</h2>
         <form id="registerForm">
-            <label>Full Name:</label>
+            <label>Full Name:</label><br>
             <input type="text" name="name" required><br><br>
 
-            <label>Date of Birth:</label>
+            <label>Date of Birth:</label><br>
             <input type="date" name="dob" required><br><br>
 
-            <label>Email:</label>
+            <label>Email:</label><br>
             <input type="email" name="email" required><br><br>
 
-            <label>Phone Number:</label>
+            <label>Phone Number:</label><br>
             <input type="tel" name="phone" pattern="[0-9]{10}" title="Enter a 10-digit number" required><br><br>
 
-            <label>Password:</label>
-            <input type="password" name="password" required>
+            <label>Password:</label><br>
+            <input type="password" name="password" required><br>
             <small>Password must be at least 8 characters with letters and numbers.</small><br><br>
 
-            <label>Location:</label>
+            <label>Location:</label><br>
             <input type="text" name="location" required><br><br>
 
-            <label>What can you volunteer for?</label>
+            <label>What can you volunteer for?</label><br>
             <input type="text" name="skills" placeholder="e.g. Teaching, Cleaning, Organizing" required><br><br>
 
-            <label>Or open to anything?</label>
+            <label>Or open to anything?</label><br>
             <select name="openToAnything">
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
@@ -71,9 +71,7 @@
             <a href="#" id="showLogin">Login here</a>
         </p>
     </section>
-
 </main>
-
 <footer>
     &copy; 2025 Micro Volunteer Platform
 </footer>
@@ -96,22 +94,8 @@
         loginSection.style.display = 'block';
     });
 </script>
-<script>
-// Enhanced Rose Petal Generation
-for(let i = 0; i < 30; i++) {
-    const petal = document.createElement('div');
-    petal.classList.add('petal');
-    petal.style.left = Math.random() * 100 + 'vw';
-    petal.style.animationDuration = (5 + Math.random() * 5) + 's';
-    petal.style.animationDelay = Math.random() * 5 + 's';
-    petal.style.width = (10 + Math.random() * 15) + 'px';
-    petal.style.height = petal.style.width;
-    document.body.appendChild(petal);
-}
-</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
-
-
 </body>
-</html>
+</html>        
