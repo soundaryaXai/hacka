@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <link rel="stylesheet" href="../../styles/global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <script src="../../js/script.js"></script>
 </head>
 <body>
@@ -20,22 +21,18 @@
     <section id="dashboardSection" class="section active">
         <h2>Create New Task / Emergency</h2>
         <form id="taskForm">
-            <label>Task Title:</label>
+            <label>Task Title:</label><br>
             <input type="text" name="title" placeholder="e.g. Food Distribution" required><br><br>
-
-            <label>Description:</label>
+            <label>Description:</label><br>
             <textarea name="description" rows="4" placeholder="Describe the task..." required></textarea><br><br>
-
-            <label>Number of Volunteers Needed:</label>
+            <label>Number of Volunteers Needed:</label><br>
             <input type="number" name="peopleNeeded" min="1" required><br><br>
-
-            <label>Urgency Level:</label>
+            <label>Urgency Level:</label><br>
             <select name="urgency">
                 <option>Normal</option>
                 <option>Urgent</option>
                 <option>Emergency</option>
-            </select>
-
+            </select><br><br>
             <button type="submit" class="get-started">Post Task</button>
         </form>
     </section>
@@ -44,21 +41,16 @@
     <section id="profileSection" class="section" style="display:none;">
         <h2>Your Profile</h2>
         <form id="profileForm">
-            <label>Profile Picture:</label>
-            <input type="file" name="profilePic" accept="image/*">
-
-            <label>Full Name:</label>
-            <input type="text" name="name" value="John Doe">
-
-            <label>Email:</label>
-            <input type="email" name="email" value="johndoe@example.com">
-
-            <label>Phone:</label>
-            <input type="tel" name="phone" value="1234567890">
-
-            <label>Location:</label>
+            <label>Profile Picture:</label><br>
+            <input type="file" name="profilePic" accept="image/*"><br><br>
+            <label>Full Name:</label><br>
+            <input type="text" name="name" value="John Doe"><br><br>
+            <label>Email:</label><br>
+            <input type="email" name="email" value="johndoe@example.com"><br><br>
+            <label>Phone:</label><br>
+            <input type="tel" name="phone" value="1234567890"><br><br>
+            <label>Location:</label><br>
             <input type="text" name="location" value="City, Country"><br><br>
-
             <button type="submit" class="get-started">Update Profile</button>
         </form>
 
@@ -70,8 +62,6 @@
 <footer>
     &copy; 2025 Micro Volunteer Platform
 </footer>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
 </body>
 </html>
