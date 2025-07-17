@@ -20,49 +20,35 @@
     <section id="loginSection" class="section active">
         <h2>Login</h2>
         <form id="loginForm">
-            <label>Email:</label><br>
-            <input type="email" name="email" required><br><br>
-
-            <label>Password:</label><br>
-            <input type="password" name="password" required><br><br>
-
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
             <button type="submit" class="get-started">Login</button>
         </form>
-
-        <p>Don't have an account? 
-            <a href="#" id="showRegister">Register here</a>
-        </p>
+        <p>Don't have an account? <a href="#" id="showRegister">Create an account</a></p>
     </section>
 
     <!-- Register Form -->
     <section id="registerSection" class="section" style="display:none;">
         <h2>Register</h2>
         <form id="registerForm">
-            <label>Full Name:</label><br>
-            <input type="text" name="name" required><br><br>
-
-            <label>Date of Birth:</label><br>
-            <input type="date" name="dob" required><br><br>
-
-            <label>Email:</label><br>
-            <input type="email" name="email" required><br><br>
-
-            <label>Phone Number:</label><br>
-            <input type="tel" name="phone" pattern="[0-9]{10}" title="Enter a 10-digit number" required><br><br>
-
-            <label>Password:</label><br>
-            <input type="password" name="password" required><br>
-            <small>Password must be at least 8 characters with letters and numbers.</small><br><br>
-
-            <label>Location:</label><br>
-            <input type="text" name="location" required><br><br>
-
-            <button type="submit" class="get-started">Register</button>
+            <label for="regName">Full Name:</label>
+            <input type="text" id="regName" name="name" placeholder="Your full name" required>
+            <label for="regDob">Date of Birth:</label>
+            <input type="date" id="regDob" name="dob" required>
+            <label for="regEmail">Email:</label>
+            <input type="email" id="regEmail" name="email" placeholder="Your email address" required>
+            <label for="regPhone">Phone Number:</label>
+            <input type="tel" id="regPhone" name="phone" pattern="[0-9]{10}" title="Enter a 10-digit number" placeholder="10-digit phone number" required>
+            <label for="regPassword">Password:</label>
+            <input type="password" id="regPassword" name="password" placeholder="Create a password" required>
+            <small>Password must be at least 8 characters with letters and numbers.</small>
+            <label for="regLocation">Location:</label>
+            <input type="text" id="regLocation" name="location" placeholder="City, Country" required>
+            <button type="submit" class="get-started">Sign Up</button>
         </form>
-
-        <p>Already have an account? 
-            <a href="#" id="showLogin">Login here</a>
-        </p>
+        <p>Already have an account? <a href="#" id="showLogin">Back to Login</a></p>
     </section>
 
 </main>
