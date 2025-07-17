@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <link rel="stylesheet" href="../../styles/global.css">
+    <script src="../../js/script.js"></script>
 </head>
 <body>
 
@@ -33,7 +34,7 @@
                 <option>Normal</option>
                 <option>Urgent</option>
                 <option>Emergency</option>
-            </select><br><br>
+            </select>
 
             <button type="submit" class="get-started">Post Task</button>
         </form>
@@ -44,16 +45,16 @@
         <h2>Your Profile</h2>
         <form id="profileForm">
             <label>Profile Picture:</label>
-            <input type="file" name="profilePic" accept="image/*"><br><br>
+            <input type="file" name="profilePic" accept="image/*">
 
             <label>Full Name:</label>
-            <input type="text" name="name" value="John Doe"><br><br>
+            <input type="text" name="name" value="John Doe">
 
             <label>Email:</label>
-            <input type="email" name="email" value="johndoe@example.com"><br><br>
+            <input type="email" name="email" value="johndoe@example.com">
 
             <label>Phone:</label>
-            <input type="tel" name="phone" value="1234567890"><br><br>
+            <input type="tel" name="phone" value="1234567890">
 
             <label>Location:</label>
             <input type="text" name="location" value="City, Country"><br><br>
@@ -70,50 +71,7 @@
     &copy; 2025 Micro Volunteer Platform
 </footer>
 
-<script>
-    const toggleProfileBtn = document.getElementById('toggleProfileBtn');
-    const backToDashboard = document.getElementById('backToDashboard');
-    const dashboardSection = document.getElementById('dashboardSection');
-    const profileSection = document.getElementById('profileSection');
-
-    toggleProfileBtn.addEventListener('click', () => {
-        dashboardSection.style.display = 'none';
-        profileSection.style.display = 'block';
-    });
-
-    backToDashboard.addEventListener('click', () => {
-        profileSection.style.display = 'none';
-        dashboardSection.style.display = 'block';
-    });
-
-    // Optional: Form submissions
-    document.getElementById('taskForm').addEventListener('submit', e => {
-        e.preventDefault();
-        alert('Task posted successfully!');
-        e.target.reset();
-    });
-
-    document.getElementById('profileForm').addEventListener('submit', e => {
-        e.preventDefault();
-        alert('Profile updated!');
-    });
-</script>;
-<script>
-// Enhanced Rose Petal Generation
-for(let i = 0; i < 30; i++) {
-    const petal = document.createElement('div');
-    petal.classList.add('petal');
-    petal.style.left = Math.random() * 100 + 'vw';
-    petal.style.animationDuration = (5 + Math.random() * 5) + 's';
-    petal.style.animationDelay = Math.random() * 5 + 's';
-    petal.style.width = (10 + Math.random() * 15) + 'px';
-    petal.style.height = petal.style.width;
-    document.body.appendChild(petal);
-}
-</script>
-
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-
 
 </body>
 </html>

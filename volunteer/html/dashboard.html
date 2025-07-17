@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volunteer Dashboard</title>
     <link rel="stylesheet" href="../../styles/global.css">
+    <script src="../../js/script.js"></script>
 </head>
 <body>
 
@@ -14,8 +15,6 @@
 </header>
 
 <main>
-
-
     <!-- Dashboard Section -->
     <section id="dashboardSection" class="section active">
         <h2>Available Tasks</h2>
@@ -58,74 +57,7 @@
     &copy; 2025 Micro Volunteer Platform
 </footer>
 
-<script>
-    const toggleProfileBtn = document.getElementById('toggleProfileBtn');
-    const backToDashboard = document.getElementById('backToDashboard');
-    const dashboardSection = document.getElementById('dashboardSection');
-    const profileSection = document.getElementById('profileSection');
-    const taskList = document.getElementById('taskList');
-
-    // Toggle to profile view
-    toggleProfileBtn.addEventListener('click', () => {
-        dashboardSection.style.display = 'none';
-        profileSection.style.display = 'block';
-    });
-
-    // Toggle back to dashboard view
-    backToDashboard.addEventListener('click', () => {
-        profileSection.style.display = 'none';
-        dashboardSection.style.display = 'block';
-    });
-
-    // Dummy tasks data - simulate tasks
-    const tasks = [
-        { title: "Food Distribution", description: "Help distribute food in local shelters.", urgency: "Urgent", peopleNeeded: 5 },
-        { title: "Park Cleaning", description: "Join the park cleaning drive.", urgency: "Normal", peopleNeeded: 10 },
-        { title: "Teaching Assistance", description: "Assist children with basic education.", urgency: "Emergency", peopleNeeded: 2 }
-    ];
-
-    // Render tasks
-    function renderTasks() {
-        tasks.forEach(task => {
-            const taskDiv = document.createElement('div');
-            taskDiv.style.border = '1px solid #ccc';
-            taskDiv.style.padding = '15px';
-            taskDiv.style.marginBottom = '10px';
-            taskDiv.innerHTML = `
-                <h3>${task.title}</h3>
-                <p>${task.description}</p>
-                <p><strong>Urgency:</strong> ${task.urgency}</p>
-                <p><strong>Volunteers Needed:</strong> ${task.peopleNeeded}</p>
-                <button class="get-started">I'm Interested</button>
-            `;
-            taskList.appendChild(taskDiv);
-        });
-    }
-
-    renderTasks();
-
-    // Profile form submission
-    document.getElementById('profileForm').addEventListener('submit', e => {
-        e.preventDefault();
-        alert('Profile updated!');
-    });
-</script>
-<script>
-// Enhanced Rose Petal Generation
-for(let i = 0; i < 30; i++) {
-    const petal = document.createElement('div');
-    petal.classList.add('petal');
-    petal.style.left = Math.random() * 100 + 'vw';
-    petal.style.animationDuration = (5 + Math.random() * 5) + 's';
-    petal.style.animationDelay = Math.random() * 5 + 's';
-    petal.style.width = (10 + Math.random() * 15) + 'px';
-    petal.style.height = petal.style.width;
-    document.body.appendChild(petal);
-}
-</script>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-
-
 
 </body>
 </html>

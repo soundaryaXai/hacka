@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volunteer Authentication</title>
     <link rel="stylesheet" href="../../styles/global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <script src="../../js/script.js"></script>
 </head>
 <body>
 
@@ -72,30 +74,10 @@
         </p>
     </section>
 </main>
+
 <footer>
     &copy; 2025 Micro Volunteer Platform
 </footer>
-
-<script>
-    const showRegister = document.getElementById('showRegister');
-    const showLogin = document.getElementById('showLogin');
-    const loginSection = document.getElementById('loginSection');
-    const registerSection = document.getElementById('registerSection');
-
-    showRegister.addEventListener('click', (e) => {
-        e.preventDefault();
-        loginSection.style.display = 'none';
-        registerSection.style.display = 'block';
-    });
-
-    showLogin.addEventListener('click', (e) => {
-        e.preventDefault();
-        registerSection.style.display = 'none';
-        loginSection.style.display = 'block';
-    });
-</script>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
 </body>
 </html>        
